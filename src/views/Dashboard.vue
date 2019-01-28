@@ -14,13 +14,14 @@
           </linear-statistic>
         </v-flex>
         <v-flex lg6 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-google"
-            title="150+"
-            sub-title="Connections"
-            color="red"      
+          <linear-statistic
+            title="Orders"
+            sub-title="Increase"
+            icon="fa fa-tasks"
+            color="pink"
+            :value="30"
           >
-          </mini-statistic>           
+          </linear-statistic>
         </v-flex>
         <!-- mini statistic  end -->   
         <v-flex lg8 sm12 xs12>
