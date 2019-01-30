@@ -1,10 +1,121 @@
 <template>
   <div id="pageDashboard">
     <v-container grid-list-xl fluid>
+      <p class="subheading">Restaurant Status</p>
       <v-layout row wrap>
+        <!-- mini chart start -->
+        <v-flex lg3 sm6>
+          <v-card>
+            <v-card-text>
+              <div class="layout row ma-0 align-center justify-space-between">
+                <div class="text-box">
+                  <div class="subheading pb-2">Sign Up</div>
+                  <span class="grey--text">
+                    10%
+                    <v-icon small color="green">trending_up</v-icon>
+                  </span>
+                </div>
+                <div class="chart">
+                  <v-progress-circular
+                    :size="60"
+                    :width="5"
+                    :rotate="270"
+                    :value="10"
+                    color="success"
+                  >
+                    10
+                  </v-progress-circular>
+                </div>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <v-flex lg3 sm6>
+          <v-card>
+            <v-card-text>
+              <div class="layout row ma-0 align-center justify-space-between">
+                <div class="text-box">
+                  <div class="subheading pb-2">Promotions</div>
+                  <span class="grey--text">
+                    25%
+                    <v-icon small color="pink">trending_up</v-icon>
+                  </span>
+                </div>
+                <div class="chart">
+                  <v-progress-circular
+                    :size="60"
+                    :width="5"
+                    :rotate="270"
+                    :value="25"
+                    color="pink"
+                  >
+                    25
+                  </v-progress-circular>
+                </div>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <v-flex lg3 sm6>
+          <v-card>
+            <v-card-text>
+              <div class="layout row ma-0 align-center justify-space-between">
+                <div class="text-box">
+                  <div class="subheading pb-2">Opening Now</div>
+                  <span class="grey--text">
+                    10%
+                    <v-icon small color="primary">fa fa-cutlery</v-icon>
+                  </span>
+                </div>
+                <div class="chart">
+                  <v-progress-circular
+                    :size="60"
+                    :width="5"
+                    :rotate="270"
+                    :value="10"
+                    color="primary"
+                  >
+                    10
+                  </v-progress-circular>
+                </div>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <v-flex lg3 sm6>
+          <v-card>
+            <v-card-text>
+              <div class="layout row ma-0 align-center justify-space-between">
+                <div class="text-box">
+                  <div class="subheading pb-2">Logged On</div>
+                  <span class="grey--text">
+                    -25%
+                    <v-icon small color="warning">trending_down</v-icon>
+                  </span>
+                </div>
+                <div class="chart">
+                  <v-progress-circular
+                    :size="60"
+                    :width="5"
+                    :rotate="-180"
+                    :value="25"
+                    color="warning"
+                  >
+                    - 25
+                  </v-progress-circular>
+                </div>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <!-- mini chart end -->
+
         <!-- mini statistic start -->
         <v-flex lg6 sm6 xs12>
-          <linear-statistic 
+          <linear-statistic
             title="Sales"
             sub-title="Sales increase"
             icon="trending_up"
@@ -23,63 +134,54 @@
           >
           </linear-statistic>
         </v-flex>
-        <!-- mini statistic  end -->   
-        <v-flex lg8 sm12 xs12>
-          <v-widget title="Site Traffic" content-bg="white">
-            <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
-            </v-btn>
+        <!-- mini statistic  end -->
+        <v-flex lg6 sm12 xs12>
+          <v-widget title="Driver Status" content-bg="white">
             <div slot="widget-content">
-                <e-chart 
+              <e-chart
                 :path-option="[
-                  ['dataset.source', siteTrafficData],
-                  ['color', [color.lightBlue.base, color.green.lighten1]],
-                  ['legend.show', true],
-                  ['xAxis.axisLabel.show', true],
-                  ['yAxis.axisLabel.show', true],
-                  ['grid.left', '2%'],
-                  ['grid.bottom', '5%'],
-                  ['grid.right', '3%'],
-                  ['series[0].type', 'bar'],
-                  ['series[0].areaStyle', {}],
-                  ['series[0].smooth', true],
-                  ['series[1].smooth', true],
-                  ['series[1].type', 'bar'],
-                  ['series[1].areaStyle', {}],
-                ]"
-                height="400px"
-                width="100%"
-                >
-                </e-chart>     
-            </div>
-          </v-widget>  
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
-          <v-widget title="Top Location" content-bg="white">
-            <div slot="widget-content">
-                <e-chart 
-                :path-option="[
-                  ['dataset.source', locationData],
+                  ['dataset.source', driversStatusData],
                   ['legend.bottom', '0'],
                   ['color', [color.lightBlue.base, color.indigo.base, color.pink.base, color.green.base, color.cyan.base, color.teal.base]],
+                  ['legend.orient', 'horizontal'],
+                  ['legend.y', 'bottom'],
                   ['xAxis.show', false],
                   ['yAxis.show', false],
                   ['series[0].type', 'pie'],
-                  ['series[0].avoidLabelOverlap', true],         
-                  ['series[0].radius', ['50%', '70%']],                      
+                ]"
+                height="400px"
+                width="100%"
+              >
+              </e-chart>
+            </div>
+          </v-widget>
+        </v-flex>
+        <v-flex lg6 sm12 xs12>
+          <v-widget title="Summary">
+            <div slot="widget-content">
+                <e-chart 
+                :path-option="[
+                  ['dataset.source', dataset.summary],
+                  ['color', [color.amber.base, color.indigo.base, color.pink.base, color.green.base, color.teal.base, color.purple.base, color.brown.base, color.amber.base]],
+                  ['legend.orient', 'horizontal'],
+                  ['legend.y', 'bottom'],
+                  ['xAxis.show', false],
+                  ['yAxis.show', false],
+                  ['series[0].type', 'pie'],
+                  ['series[0].avoidLabelOverlap', true],
+                  ['series[0].radius', ['50%', '70%']],
                 ]"
                 height="400px"
                 width="100%"
                 >
-                </e-chart>     
+                </e-chart>   
             </div>
-          </v-widget>  
+          </v-widget>            
         </v-flex>
         <!-- social/weather card start -->
         <v-flex lg4 sm12 xs12>
-          <profile-card>
-          </profile-card>
-        </v-flex>        
+          <profile-card />
+        </v-flex>
         <v-flex lg4 sm12 xs12>
           <box-chart
             card-color="indigo"
@@ -101,7 +203,7 @@
             gradient
             type="area"
           >
-          </box-chart>          
+          </box-chart>
         </v-flex>
         <!-- statistic section -->
         <v-flex lg4 sm12 xs12>
@@ -183,7 +285,8 @@
 </template>
 
 <script>
-import API from '@/api';
+import API from "@/api";
+import { summaryData } from "@/api/summary";
 import EChart from '@/components/chart/echart';
 import MiniStatistic from '@/components/widgets/statistic/MiniStatistic';
 import PostListCard from '@/components/widgets/card/PostListCard';
@@ -219,6 +322,9 @@ export default {
   data: () => ({
     color: Material,
     selectedTab: 'tab-1',
+    dataset: {
+      summary: summaryData
+    },
     linearTrending: [
       {
         subheading: 'Sales',
@@ -289,9 +395,9 @@ export default {
         },
         linear: {
           value: 90,
-          color: 'success'
+          color: "success"
         }
-      },        
+      },
       {
         subheading: 'Issues',
         headline: '100%',
@@ -299,14 +405,14 @@ export default {
         percent: 100,
         icon: {
           label: 'bug_report',
-          color: 'primary'
+          color: "primary"
         },
         linear: {
           value: 100,
-          color: 'error'
+          color: "error"
         }
-      },        
-    ]    
+      }
+    ]
   }),
   computed: {
     activity () {
@@ -315,13 +421,12 @@ export default {
     posts () {
       return API.getPost(3);
     },
-    siteTrafficData () {
+    siteTrafficData() {
       return API.getMonthVisit;
     },
-    locationData () {
-      return API.getLocation;
+    driversStatusData() {
+      return API.getDriversStatus;
     }
-  },
-
+  }
 };
 </script>
