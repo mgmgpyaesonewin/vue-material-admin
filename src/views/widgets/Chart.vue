@@ -49,7 +49,7 @@
                 </div>
               </div>
             </v-card-text>
-          </v-card>             
+          </v-card>
         </v-flex>
         <v-flex lg3 sm6>
           <mini-chart
