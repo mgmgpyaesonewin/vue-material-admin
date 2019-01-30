@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>more_vert</v-icon>
-      </v-btn>      
+      </v-btn>
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
@@ -20,7 +20,23 @@
             <td>{{ props.item.id }}</td>
             <td class="text-xs-left">{{ props.item.product }}</td>
             <td class="text-xs-left">{{ props.item.price }}</td>
-            <td class="text-xs-left"><v-chip label small :color="getColorByStatus(props.item.status)" text-color="white" >{{ props.item.status }}</v-chip></td>
+            <td class="text-xs-left">
+              <v-chip
+                label
+                small
+                :color="getColorByStatus(props.item.status)"
+                text-color="white" >
+                {{ props.item.status }}
+              </v-chip>
+            </td>
+            <td class="text-xs-right">
+              <v-btn flat icon color="grey">
+                <v-icon>edit</v-icon>
+              </v-btn>
+              <v-btn flat icon color="grey">
+                <v-icon>delete</v-icon>
+              </v-btn>
+            </td>
           </template>
         </v-data-table>
       </template>
@@ -44,7 +60,7 @@ export default {
         { text: 'Product', value: 'deadline' },
         { text: 'Price', value: 'progress' },
         { text: 'Status', value: 'status' },
-
+        { text: "Action", value: "action", align: "center" }
       ],
       items: items,
       colors: {

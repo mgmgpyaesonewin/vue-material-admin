@@ -178,107 +178,21 @@
             </div>
           </v-widget>            
         </v-flex>
-        <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12>
-          <profile-card />
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
-          <box-chart
-            card-color="indigo"
-            title="Trending"
-            sub-title="10%"
-            icon="trending_up"
-            :data="siteTrafficData"
-            :chart-color="[color.indigo.lighten1]"
-            type="line"
-          >
-          </box-chart>
-          <box-chart class="mt-4"
-            card-color="pink"
-            title="Page views"
-            sub-title="10%"
-            icon="trending_up"
-            :data="siteTrafficData"
-            :chart-color="[color.pink.darken1, 'rgba(255,255,255,0.3)']"
-            gradient
-            type="area"
-          >
-          </box-chart>
-        </v-flex>
-        <!-- statistic section -->
-        <v-flex lg4 sm12 xs12>
-          <linear-statistic 
-            title="Sales"
-            sub-title="Sales increase"
-            icon="trending_up"
-            color="success"
-            :value="15"
-          >
-          </linear-statistic>
-          <linear-statistic class="my-4"
-            title="Orders"
-            sub-title="Increase"
-            icon="trending_up"
-            color="pink"
-            :value="30"
-          >
-          </linear-statistic>          
-          <linear-statistic class="my-4"
-            title="Revenue"
-            sub-title="Revenue increase"
-            icon="trending_up"
-            color="primary"
-            :value="50"
-          >
-          </linear-statistic>          
-          <linear-statistic class="mt-4"
-            title="Cost"
-            sub-title="Cost reduce"
-            icon="trending_down"
-            color="orange"
-            :value="25"
-          >
-          </linear-statistic>          
-        </v-flex>
         <!-- Circle statistic -->
-        <v-flex lg4 sm12 xs12 v-for="(item,index) in trending" :key="'c-trending'+index">
+        <v-flex lg4 sm12 xs12>
           <circle-statistic
-            :title="item.subheading"
-            :sub-title="item.headline"
-            :caption="item.caption"
-            :icon="item.icon.label"
-            :color="item.linear.color"
-            :value="item.linear.value"
+            title="Summary"
+            sub-title="(+ 67%)"
+            caption="67 order received"
+            icon="fa fa-list-ol"
+            color="info"
+            value="67"
           >
-          </circle-statistic>            
-        </v-flex>    
-        <!-- acitivity/chat widget -->
-        <v-flex lg6 sm12 xs12>
-          <chat-window height="308px"></chat-window>
+          </circle-statistic>
         </v-flex>
-        <v-flex lg6 sm12 xs12>
-          <v-widget title="Activities" contentBg="white">
-            <div slot="widget-content">
-              <ol class="timeline timeline-activity timeline-point-sm timeline-content-right">
-                <li class="timeline-block" v-for="(item, index) in activity" :key="index">
-                  <div class="timeline-point">
-                    <v-circle dot large :color="item.color"></v-circle>
-                  </div>
-                  <div class="timeline-content">
-                    <time datetime="2018" class="subheading">{{item.timeString}}</time>
-                    <div class="py-2 text--secondary" v-html="item.text"></div>
-                  </div>
-                </li>
-              </ol>              
-            </div>
-          </v-widget>          
-        </v-flex>
-        <v-flex lg7 sm12 xs12>
-          <plain-table></plain-table>
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
+        <v-flex lg8 sm12 xs12>
           <plain-table-order></plain-table-order>
-        </v-flex>               
+        </v-flex>
       </v-layout>
     </v-container>
   </div>
@@ -324,95 +238,7 @@ export default {
     selectedTab: 'tab-1',
     dataset: {
       summary: summaryData
-    },
-    linearTrending: [
-      {
-        subheading: 'Sales',
-        headline: '2,55',
-        caption: 'increase',
-        percent: 15,
-        icon: {
-          label: 'trending_up',
-          color: 'success'
-        },
-        linear: {
-          value: 15,
-          color: 'success'
-        }
-      },
-      {
-        subheading: 'Revenue',
-        headline: '6,553',
-        caption: 'increase',
-        percent: 10,
-        icon: {
-          label: 'trending_down',
-          color: 'error'
-        },
-        linear: {
-          value: 15,
-          color: 'error'
-        }
-      },
-      {
-        subheading: 'Orders',
-        headline: '5,00',
-        caption: 'increase',
-        percent: 50,
-        icon: {
-          label: 'arrow_upward',
-          color: 'info'
-        },
-        linear: {
-          value: 50,
-          color: 'info'
-        }
-      }
-    ],    
-    trending: [
-      {
-        subheading: 'Email',
-        headline: '15+',
-        caption: 'email opens',
-        percent: 15,
-        icon: {
-          label: 'email',
-          color: 'info'
-        },
-        linear: {
-          value: 15,
-          color: 'info'
-        }
-      },        
-      {
-        subheading: 'Tasks',
-        headline: '90%',
-        caption: 'tasks completed.',
-        percent: 90,
-        icon: {
-          label: 'list',
-          color: 'primary'
-        },
-        linear: {
-          value: 90,
-          color: "success"
-        }
-      },
-      {
-        subheading: 'Issues',
-        headline: '100%',
-        caption: 'issues fixed.',
-        percent: 100,
-        icon: {
-          label: 'bug_report',
-          color: "primary"
-        },
-        linear: {
-          value: 100,
-          color: "error"
-        }
-      }
-    ]
+    }
   }),
   computed: {
     activity () {

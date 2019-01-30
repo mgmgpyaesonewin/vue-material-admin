@@ -26,7 +26,7 @@
         <div class="headline">{{subTitle}}</div>
         <div class="caption">{{caption}}</div>
       </v-card-actions>
-    </v-card>     
+    </v-card>
 </template>
 
 <script>
@@ -36,13 +36,8 @@ export default {
     title: String,
     subTitle: String,
     caption: String,
-    value: Number,
+    value: String,
     color: String
-  },
-
+  }
 };
 </script>
-
-<style>
-
-</style>
