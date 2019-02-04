@@ -5,7 +5,6 @@ import * as Driver from "./driver";
 import * as Summary from "./summary";
 import * as Activity from "./activity";
 import * as Chat from "./chat";
-import * as Files from "./file";
 import * as Mail from "./mail";
 import * as Post from "./post";
 import * as Chart from "./chart";
@@ -24,9 +23,6 @@ export default {
   getChatMenu: Chat.Menu,
   getChatGroup: Chat.Groups,
   getChatGroupById: Chat.getChatById,
-  // FIle
-  getFile: Files.getFile,
-  getFileMenu: Files.getFileMenu,
   // mail
   getMail: Mail.getMail,
   getMailMenu: Mail.MailMenu,

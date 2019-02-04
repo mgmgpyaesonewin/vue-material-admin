@@ -6,6 +6,14 @@ const Menu = [
     icon: "dashboard",
     name: "Dashboard"
   },
+  { header: "Drivers" },
+  {
+    name: "DriversDashboard",
+    title: "Dashboard",
+    group: "drivers",
+    component: "drivers",
+    icon: "directions_bus"
+  },
   {
     title: "Chat",
     group: "apps",
@@ -18,12 +26,6 @@ const Menu = [
     name: "Mail",
     target: "_blank",
     icon: "email"
-  },
-  {
-    title: "Media",
-    group: "apps",
-    name: "Media",
-    icon: "perm_media"
   },
   {
     title: "Widgets",
